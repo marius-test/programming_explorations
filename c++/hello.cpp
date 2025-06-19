@@ -5,4 +5,4 @@ int main() {
     return 0;
 }
 
-//TODO compile and run
+// in the current folder, write ./hello.exe in the terminal to run the program

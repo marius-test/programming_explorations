@@ -3,4 +3,4 @@ program hello_world
   print *, "Hello world!"
 end program hello_world
 
-!TODO compile and run
+! in the current folder, write ./hello.exe in the terminal to run the program
