@@ -1,4 +1,4 @@
-# retro_sandbox
+# retro_programming
 
 This folder is my playground for experimenting with some classic programming languages:  
 **C++**, **Fortran**, and **Pascal**.
