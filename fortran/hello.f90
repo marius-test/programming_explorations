@@ -1,6 +1,6 @@
-program hello_world
+program hello_fortran
   implicit none
-  print *, "Hello world!"
-end program hello_world
+  print *, "Hello Fortran!"
+end program hello_fortran
 
 ! in the current folder, write ./hello.exe in the terminal to run the program
