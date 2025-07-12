@@ -1,4 +1,4 @@
-# retro_programming
+# programming_explorations
 
 This folder is for experimenting and exploring some classic programming languages:  
 **C++**, **Fortran**, and **Pascal**.
