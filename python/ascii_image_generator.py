@@ -10,7 +10,7 @@ img = Image.new("RGB", (img_width, img_height), color="black")
 draw = ImageDraw.Draw(img)
 
 # load font
-font = ImageFont.truetype(r"C:\\Windows\\Fonts\\cour.ttf", 24)
+font = ImageFont.truetype(r"C:\\Windows\\Fonts\\courbd.ttf", 24)
 
 ascent, descent = font.getmetrics()
 line_height = ascent + descent
@@ -22,7 +22,7 @@ y_text = (img_height - total_text_height) // 2
 for line in lines:
     line_width = font.getbbox(line)[2] - font.getbbox(line)[0]  # width from bounding box
     x_text = (img_width - line_width) // 2
-    draw.text((x_text, y_text), line, font=font, fill="white")
+    draw.text((x_text, y_text), line, font=font, fill="blue")
     y_text += line_height
 
 img.save("nasa_ascii_wallpaper.png")
