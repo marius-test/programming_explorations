@@ -6,6 +6,7 @@
         "getbbox",
         "getmetrics",
         "Mélanie",
+        "putpixel",
         "skyblue",
         "writeln"
     ]

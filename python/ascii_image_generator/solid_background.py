@@ -9,7 +9,6 @@ img_height = 1920
 img = Image.new("RGB", (img_width, img_height), color=(24, 62, 125))
 draw = ImageDraw.Draw(img)
 
-# load font
 font = ImageFont.truetype(r"C:\\Windows\\Fonts\\courbd.ttf", 24)
 
 ascent, descent = font.getmetrics()
