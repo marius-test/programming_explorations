@@ -1,6 +1,6 @@
 # programming_explorations
 
-This folder is for experimenting and exploring some classic programming languages:  
+This folder is for experimenting with and exploring some classic programming languages:  
 **C++**, **Fortran**, and **Pascal**.
 
 I write simple programs and scripts here to satisfy my curiosity and have fun exploring these languages.
@@ -11,9 +11,26 @@ Also contains a `tasks.json` configured for VSCode to compile any of the three b
 
 ---
 
-## Jupyter Notebooks
+## Jupyter
 
 Additionally, this repo now includes Jupyter notebooks for interactive Python experiments and scripting.  
 These notebooks allow quick testing and exploration of Python code, combining code, output, and notes in a single document.
 
 You can run these notebooks inside VSCode using the Jupyter extension, or with the classic Jupyter notebook server installed via `pip install jupyter`.
+
+---
+
+## JavaScript
+
+I am also experimenting with **JavaScript** in this repo.  
+Here, I write and run simple Node.js scripts using VSCode and Node.js installed via nvm.
+
+This allows me to explore modern JavaScript programming outside of the browser environment.
+
+---
+
+## Python
+
+I may also build small Python programs in this repo as part of my experimentation.  
+If a project shows potential, I’ll move it to its own repository.  
+Don’t worry... if anything interesting or worth sharing comes up, I’ll include a dedicated README.
