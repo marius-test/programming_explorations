@@ -47,7 +47,7 @@ draw = ImageDraw.Draw(img)
 ascii_art = pyfiglet.figlet_format(text)
 
 # load font to be used for drawing text
-font = ImageFont.truetype(r"C:\\Windows\\Fonts\\courbd.ttf", 24)
+font = ImageFont.truetype(r"C:\\Windows\\Fonts\\courbd.ttf", 36)
 
 # get font metrics for line height calculations
 ascent, descent = font.getmetrics()
@@ -60,12 +60,17 @@ total_text_height = line_height * len(lines)
 # starting y position to vertically center ASCII art in the image
 y_text = (img_height - total_text_height) // 2
 
-# loop through each ASCII art line and draw it centered horizontally
+# loop through each ASCII art line and draw it centered horizontally with bold effect
 for line in lines:
     line_width = font.getbbox(line)[2] - font.getbbox(line)[0]  # calculate line width
     x_text = (img_width - line_width) // 2  # calculate x position to center text line
-    draw.text((x_text, y_text), line, font=font, fill=(249, 249, 249))  # draw text in light color
+    
+    # draw text multiple times with slight offsets to simulate bold
+    offsets = [(0, 0), (1, 0), (0, 1), (1, 1)]
+    for ox, oy in offsets:
+        draw.text((x_text + ox, y_text + oy), line, font=font, fill=(249, 249, 249))
+    
     y_text += line_height  # move y position down for next line
 
-# save the final image to file
-img.save("ascii_vertical_wallpaper_3.png")
+# save image as
+img.save(r"C:\\Users\\marius\\python\\programming_explorations\\python\\ascii_image_generator\\images\\ascii_vertical_wallpaper_5.png")
