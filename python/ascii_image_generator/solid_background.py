@@ -40,4 +40,4 @@ for line in lines:
     y_text += line_height
 
 # save image as
-img.save("ascii_vertical_wallpaper.png")
+img.save("ascii_vertical_wallpaper_1.png")
