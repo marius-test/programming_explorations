@@ -7,7 +7,6 @@ text = "Melanie"  # text to convert into ASCII art
 img_width = 1080  # image width in pixels
 img_height = 1920  # image height in pixels
 base_color = (24, 62, 125)  # dark blue base color for background
-center_lightness_boost = 100  # how much lighter the center will be compared to edges
 
 # create a blank RGB image without background color set yet
 img = Image.new("RGB", (img_width, img_height))
@@ -19,21 +18,26 @@ center_y = img_height // 2
 # maximum distance from center to any corner (used for gradient scaling)
 max_dist = math.hypot(center_x, center_y)
 
-# generate radial gradient background by adjusting brightness based on distance from center
+# vignette settings
+min_brightness = 0.7  # how dark the edges get (0 = black, 1 = no darkening)
+
+# generate radial gradient background with center as base_color and edges darker (vignette)
 for y in range(img_height):
     for x in range(img_width):
         dx = x - center_x  # horizontal distance from center
         dy = y - center_y  # vertical distance from center
         dist = math.hypot(dx, dy)  # actual distance from center using Pythagoras
         ratio = dist / max_dist  # normalize distance: 0 at center, 1 at farthest corner
-        brightness_scale = 1 - ratio  # invert ratio so center is brightest (1), edges darkest (0)
         
-        # calculate new RGB values by adding brightness boost scaled by distance
-        r = min(255, int(base_color[0] + center_lightness_boost * brightness_scale))
-        g = min(255, int(base_color[1] + center_lightness_boost * brightness_scale))
-        b = min(255, int(base_color[2] + center_lightness_boost * brightness_scale))
+        # calculate brightness scale for vignette effect
+        brightness_scale = min_brightness + (1 - min_brightness) * (1 - ratio) ** 2
         
-        # set pixel color to the calculated gradient color
+        # apply brightness scale to base color channels to darken edges
+        r = int(base_color[0] * brightness_scale)
+        g = int(base_color[1] * brightness_scale)
+        b = int(base_color[2] * brightness_scale)
+        
+        # set pixel color to the calculated vignette color
         img.putpixel((x, y), (r, g, b))
 
 # prepare to draw ASCII text on the image
@@ -64,4 +68,4 @@ for line in lines:
     y_text += line_height  # move y position down for next line
 
 # save the final image to file
-img.save("ascii_vertical_wallpaper_2.png")
+img.save("ascii_vertical_wallpaper_3.png")
