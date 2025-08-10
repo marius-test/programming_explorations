@@ -3,9 +3,9 @@ import pyfiglet  # generates ASCII art from plain text
 import math  # math functions, used for distance calculations
 
 # settings
-text = "Melanie"  # text to convert into ASCII art
-img_width = 1080  # image width in pixels
-img_height = 1920  # image height in pixels
+text = "marius-x86"  # text to convert into ASCII art
+img_width = 2560  # image width in pixels
+img_height = 1440  # image height in pixels
 base_color = (24, 62, 125)  # dark blue base color for background
 
 # create a blank RGB image without background color set yet
