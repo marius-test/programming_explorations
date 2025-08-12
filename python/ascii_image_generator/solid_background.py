@@ -5,7 +5,7 @@ import pyfiglet
 text = "marius-x86"  # text to convert into ASCII art
 img_width = 1080  # width of the output image in pixels
 img_height = 1920  # height of the output image in pixels
-img_color = (0, 128, 128)  # solid background color (teal)
+img_color = (0, 0, 128)  # solid background color (teal)
 font_path = r"C:\\Windows\\Fonts\\courbd.ttf"  # path to font file
 font_size = 24  # font size for ASCII art rendering
 text_color = (249, 249, 249)  # light text color (near white)
@@ -51,4 +51,4 @@ for line in lines:
     y_text += line_height
 
 # save the final image to disk
-img.save(r"C:\\Users\\marius\\python\\programming_explorations\\python\\ascii_image_generator\\images\\ascii_vertical_wallpaper_12.png")
+img.save(r"C:\\Users\\marius\\python\\programming_explorations\\python\\ascii_image_generator\\images\\ascii_vertical_wallpaper_13.png")
