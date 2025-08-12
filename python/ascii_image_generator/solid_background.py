@@ -1,43 +1,54 @@
-from PIL import Image, ImageDraw, ImageFont  # Python Image Library for image manipulation
-import pyfiglet  # generates ASCII art from plain text
+from PIL import Image, ImageDraw, ImageFont
+import pyfiglet
 
-# create ASCII art from text
-ascii_art = pyfiglet.figlet_format("Melanie")
+# text and settings
+text = "marius-x86"  # text to convert into ASCII art
+img_width = 1080  # width of the output image in pixels
+img_height = 1920  # height of the output image in pixels
+img_color = (0, 128, 128)  # solid background color (teal)
+font_path = r"C:\\Windows\\Fonts\\courbd.ttf"  # path to font file
+font_size = 24  # font size for ASCII art rendering
+text_color = (249, 249, 249)  # light text color (near white)
 
-# final image size and background color
-img_width = 1080
-img_height = 1920
-img_color = (24, 62, 125)
+# generate ASCII art from the text string
+ascii_art = pyfiglet.figlet_format(text)
 
-# generate a blank image with the specified size and color
+# create a new solid background image with given color and size
 img = Image.new("RGB", (img_width, img_height), color=img_color)
-draw = ImageDraw.Draw(img)
+draw = ImageDraw.Draw(img)  # create drawing context for the image
 
-# load font and size
-font = ImageFont.truetype(r"C:\\Windows\\Fonts\\courbd.ttf", 24)
+# load the font with the specified size
+font = ImageFont.truetype(font_path, font_size)
+ascent, descent = font.getmetrics()  # get font metrics for vertical spacing
+line_height = ascent + descent  # total line height including descent
 
-# get font character height in pixels: ascent is above baseline, descent is below baseline
-ascent, descent = font.getmetrics()
-# total line height is sum of ascent and descent, used to space each line of ASCII art correctly
-line_height = ascent + descent
-
-# split ASCII art into individual lines by breaking at newline characters
-lines = ascii_art.split('\n')
-# calculate total height of all lines combined to know how tall the whole ASCII block is
+# split the ASCII art text into individual lines
+lines = ascii_art.split("\n")
+# calculate total height of all lines combined to center vertically
 total_text_height = line_height * len(lines)
-# calculate starting y-position to vertically center ASCII art in the image
-y_text = (img_height - total_text_height) // 2
+y_text = (img_height - total_text_height) // 2  # starting y position (vertical center)
 
-# loop through each line of the ASCII art
+# draw each line of ASCII art with a heavier bold effect by drawing multiple offsets
 for line in lines:
-    # calculate the width of the current line using font bounding box (right - left)
+    if not line.strip():
+        # if line is empty, just move down by line height
+        y_text += line_height
+        continue
+    
+    # get width of the current line in pixels
     line_width = font.getbbox(line)[2] - font.getbbox(line)[0]
-    # calculate x position to horizontally center the line within the image
+    # calculate x position to horizontally center the line
     x_text = (img_width - line_width) // 2
-    # draw the text line at calculated (x, y) position with the chosen font and color
-    draw.text((x_text, y_text), line, font=font, fill=(249, 249, 249))
-    # move the y position down by one line height to prepare for next line
+    
+    # offsets for heavier bold effect (draw text multiple times around base position)
+    offsets = [(0, 0), (1, 0), (0, 1), (1, 1), (-1, 0), (0, -1)]
+    
+    # draw the text at each offset to simulate boldness
+    for ox, oy in offsets:
+        draw.text((x_text + ox, y_text + oy), line, font=font, fill=text_color)
+    
+    # move y position down by one line height for next line
     y_text += line_height
 
-# save image as
-img.save(r"C:\\Users\\marius\\python\\programming_explorations\\python\\ascii_image_generator\\images\\ascii_vertical_wallpaper_6.png")
+# save the final image to disk
+img.save(r"C:\\Users\\marius\\python\\programming_explorations\\python\\ascii_image_generator\\images\\ascii_vertical_wallpaper_12.png")
