@@ -9,5 +9,8 @@
         "putpixel",
         "skyblue",
         "writeln"
-    ]
+    ],
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }
