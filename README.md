@@ -32,5 +32,4 @@ This allows me to explore modern JavaScript programming outside of the browser e
 ## Python
 
 I may also build small Python programs in this repo as part of my experimentation.  
-If a project shows potential, I’ll move it to its own repository.  
-Don’t worry... if anything interesting or worth sharing comes up, I’ll include a dedicated README.
+If a project shows potential, I’ll move it to its own repository and include a dedicated README.
