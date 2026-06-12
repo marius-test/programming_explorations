@@ -2,18 +2,6 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build Pascal",
-      "type": "shell",
-      "command": "fpc",
-      "args": [
-        "${file}"
-      ],
-      "group": {
-        "kind": "build"
-      },
-      "problemMatcher": []
-    },
-    {
       "label": "Build C++",
       "type": "shell",
       "command": "g++",
